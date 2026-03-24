@@ -29,7 +29,7 @@ Apple Translation (on-device) requires macOS 15 Sequoia for the programmatic API
 
 ```bash
 git clone https://github.com/eduardoworrel/what-did-they-say
-cd what-did-they-say/Lingo
+cd what-did-they-say/WhatDidTheySay
 open Package.swift           # Opens in Xcode
 ```
 
@@ -41,7 +41,7 @@ In Xcode:
 ### With Swift CLI
 
 ```bash
-cd what-did-they-say/Lingo
+cd what-did-they-say/WhatDidTheySay
 swift build -c release
 .build/release/WhatDidTheySay
 ```
@@ -72,7 +72,7 @@ What Did They Say requires two permissions (prompted automatically on first laun
 ## Project Structure
 
 ```
-Lingo/
+WhatDidTheySay/
 ├── Package.swift
 ├── Lingo.entitlements
 ├── Resources/Assets.xcassets/      ← App icon + menu bar icon assets
