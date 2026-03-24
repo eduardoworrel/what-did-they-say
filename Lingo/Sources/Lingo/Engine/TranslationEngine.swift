@@ -92,7 +92,7 @@ final class TranslationEngineProvider {
     private init() {
         var engines: [any TranslationEngine] = []
 
-        if #available(macOS 14, *) {
+        if #available(macOS 26, *) {
             engines.append(AppleTranslationEngine())
         }
         engines.append(NLLBEngine())

@@ -1,14 +1,14 @@
 import Foundation
 
 // Apple's Translation framework is available on macOS 14+.
-// The programmatic API (TranslationSession without SwiftUI) landed in macOS 15.
-// For macOS 14, we use the SwiftUI .translationTask modifier path (see PopoverView).
-// This class wraps the direct session API available on macOS 15+.
+// The programmatic API (TranslationSession without SwiftUI) landed in macOS 26.
+// For macOS 14–25, we fall through to the NLLBEngine fallback.
+// This class wraps the direct session API available on macOS 26+.
 
 #if canImport(Translation)
 import Translation
 
-@available(macOS 15, *)
+@available(macOS 26, *)
 final class AppleTranslationEngine: TranslationEngine, @unchecked Sendable {
     let name = "Apple Translation"
 
@@ -27,8 +27,7 @@ final class AppleTranslationEngine: TranslationEngine, @unchecked Sendable {
 
         let session = lock.withLock {
             if let existing = sessions[key] { return existing }
-            let config = TranslationSession.Configuration(source: source, target: target)
-            let newSession = TranslationSession(configuration: config)
+            let newSession = TranslationSession(installedSource: source, target: target)
             sessions[key] = newSession
             return newSession
         }

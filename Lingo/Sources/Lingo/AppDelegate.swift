@@ -48,11 +48,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         screenShortcut = GlobalShortcut.makeScreenShortcut { [weak self] in
-            guard let self, let controller = self.menuBarController else { return }
-            let lang = Preferences.shared.targetLanguageId
-            let locale = Locale.Language(identifier: lang.isEmpty ? "en" : lang)
+            guard let self, let _ = self.menuBarController else { return }
             Task { @MainActor in
-                // Access screenTranslator through the controller via a notification
+                let lang = Preferences.shared.targetLanguageId
+                let locale = Locale.Language(identifier: lang.isEmpty ? "en" : lang)
                 NotificationCenter.default.post(name: .toggleScreenTranslation, object: locale)
             }
         }

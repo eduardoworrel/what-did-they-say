@@ -38,7 +38,8 @@ final class GlobalShortcut {
 
         if eventHandlerRef == nil {
             var eventSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
-            InstallApplicationEventHandler(
+            InstallEventHandler(
+                GetApplicationEventTarget(),
                 { _, event, _ -> OSStatus in
                     var hotKeyID = EventHotKeyID()
                     GetEventParameter(event, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID),
@@ -46,7 +47,7 @@ final class GlobalShortcut {
                     GlobalShortcut.registry[hotKeyID.id]?.handler()
                     return noErr
                 },
-                1, &eventSpec, nil, &eventHandlerRef
+                1, &eventSpec, nil as UnsafeMutableRawPointer?, &eventHandlerRef
             )
         }
     }
