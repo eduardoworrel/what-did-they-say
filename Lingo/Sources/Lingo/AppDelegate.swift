@@ -1,5 +1,6 @@
 import LingoCore
 import AppKit
+import Combine
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -7,6 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var popoverShortcut: GlobalShortcut?
     private var screenShortcut: GlobalShortcut?
     private var hoverController: HoverTranslationController?
+    private var shortcutObservers: Set<AnyCancellable> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Menu bar only — hide from Dock and app switcher
@@ -48,14 +50,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Shortcuts
 
+    @MainActor
     private func registerShortcuts() {
-        popoverShortcut = GlobalShortcut.makePopoverShortcut { [weak self] in
+        let prefs = Preferences.shared
+
+        popoverShortcut = GlobalShortcut.makePopoverShortcut(record: prefs.popoverShortcut) { [weak self] in
             DispatchQueue.main.async {
                 self?.hoverController?.toggle()
             }
         }
 
-        screenShortcut = GlobalShortcut.makeScreenShortcut { [weak self] in
+        screenShortcut = GlobalShortcut.makeScreenShortcut(record: prefs.screenShortcut) { [weak self] in
             guard let self, let _ = self.menuBarController else { return }
             Task { @MainActor in
                 let lang = Preferences.shared.targetLanguageId
@@ -63,6 +68,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 NotificationCenter.default.post(name: .toggleScreenTranslation, object: locale)
             }
         }
+
+        // Re-register whenever the user picks a new shortcut in settings
+        shortcutObservers = []
+        prefs.$popoverShortcut
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in self?.registerShortcuts() }
+            .store(in: &shortcutObservers)
+
+        prefs.$screenShortcut
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in self?.registerShortcuts() }
+            .store(in: &shortcutObservers)
     }
 
     // MARK: - Notifications

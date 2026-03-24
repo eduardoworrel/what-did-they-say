@@ -15,7 +15,7 @@ public final class Preferences: ObservableObject {
         static let sourceLanguageId = "sourceLanguageId"
         static let targetLanguageId = "targetLanguageId"
         static let launchAtLogin    = "launchAtLogin"
-        static let globalShortcut   = "globalShortcut"
+        static let popoverShortcut  = "popoverShortcut"
         static let screenShortcut   = "screenShortcut"
     }
 
@@ -36,12 +36,42 @@ public final class Preferences: ObservableObject {
         }
     }
 
+    @Published public var popoverShortcut: ShortcutRecord {
+        didSet {
+            if let data = try? JSONEncoder().encode(popoverShortcut) {
+                defaults.set(data, forKey: Key.popoverShortcut)
+            }
+        }
+    }
+
+    @Published public var screenShortcut: ShortcutRecord {
+        didSet {
+            if let data = try? JSONEncoder().encode(screenShortcut) {
+                defaults.set(data, forKey: Key.screenShortcut)
+            }
+        }
+    }
+
     // MARK: - Init
 
     private init() {
         sourceLanguageId = defaults.string(forKey: Key.sourceLanguageId) ?? ""
         targetLanguageId = defaults.string(forKey: Key.targetLanguageId) ?? "en"
         launchAtLogin    = defaults.bool(forKey: Key.launchAtLogin)
+
+        if let data = defaults.data(forKey: Key.popoverShortcut),
+           let rec  = try? JSONDecoder().decode(ShortcutRecord.self, from: data) {
+            popoverShortcut = rec
+        } else {
+            popoverShortcut = .defaultPopover
+        }
+
+        if let data = defaults.data(forKey: Key.screenShortcut),
+           let rec  = try? JSONDecoder().decode(ShortcutRecord.self, from: data) {
+            screenShortcut = rec
+        } else {
+            screenShortcut = .defaultScreen
+        }
     }
 
     // MARK: - Launch at Login

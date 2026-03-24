@@ -61,22 +61,16 @@ public final class GlobalShortcut {
 
     // MARK: - Convenience factory
 
-    /// ⌘⇧T — toggle text translation popover
-    public static func makePopoverShortcut(handler: @escaping Handler) -> GlobalShortcut {
-        GlobalShortcut(
-            keyCode: UInt32(kVK_ANSI_T),
-            modifiers: UInt32(cmdKey | shiftKey),
-            handler: handler
-        )
+    /// Toggle hover-to-translate (default ⌘⇧T, overridable via ShortcutRecord).
+    public static func makePopoverShortcut(record: ShortcutRecord = .defaultPopover,
+                                           handler: @escaping Handler) -> GlobalShortcut {
+        GlobalShortcut(keyCode: record.keyCode, modifiers: record.carbonModifiers, handler: handler)
     }
 
-    /// ⌘⇧S — toggle screen translation
-    public static func makeScreenShortcut(handler: @escaping Handler) -> GlobalShortcut {
-        GlobalShortcut(
-            keyCode: UInt32(kVK_ANSI_S),
-            modifiers: UInt32(cmdKey | shiftKey),
-            handler: handler
-        )
+    /// Toggle screen translation (default ⌘⇧S, overridable via ShortcutRecord).
+    public static func makeScreenShortcut(record: ShortcutRecord = .defaultScreen,
+                                          handler: @escaping Handler) -> GlobalShortcut {
+        GlobalShortcut(keyCode: record.keyCode, modifiers: record.carbonModifiers, handler: handler)
     }
 }
 

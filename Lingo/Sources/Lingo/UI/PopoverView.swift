@@ -10,6 +10,7 @@ struct PopoverView: View {
     @State private var errorMessage: String?
     @State private var sourceLanguage = Language.auto
     @State private var targetLanguage = Language.all.first(where: { $0.id == "en" }) ?? Language.all[0]
+    @State private var showSettings = false
 
     @ObservedObject var screenTranslator: ScreenTranslator
     @ObservedObject var prefs: Preferences
@@ -23,6 +24,14 @@ struct PopoverView: View {
     }
 
     var body: some View {
+        if showSettings {
+            SettingsView(prefs: prefs, showSettings: $showSettings)
+        } else {
+            translationView
+        }
+    }
+
+    private var translationView: some View {
         VStack(spacing: 0) {
             headerBar
             Divider()
@@ -118,6 +127,17 @@ struct PopoverView: View {
 
     private var footerBar: some View {
         HStack(spacing: 8) {
+            // Settings
+            Button {
+                showSettings = true
+            } label: {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 12))
+            }
+            .buttonStyle(.borderless)
+            .controlSize(.small)
+            .help("Settings")
+
             // Screen translate toggle
             Button {
                 Task {
