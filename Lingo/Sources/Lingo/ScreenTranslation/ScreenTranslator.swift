@@ -59,38 +59,51 @@ final class ScreenTranslator: ObservableObject {
 
         do {
             state = .capturing
-            let image = try await captureManager.captureMainDisplay()
+            let captures = try await captureManager.captureAllDisplays()
 
             state = .detecting
-            let imageSize = CGSize(width: image.width, height: image.height)
-            let regions = try await detector.detectText(in: image, imageSize: imageSize)
+            var allRegions: [(region: TextRegion, screen: NSScreen)] = []
+            for (image, screen) in captures {
+                let imageSize = CGSize(width: image.width, height: image.height)
+                let regions = try await detector.detectText(in: image, imageSize: imageSize)
+                for region in regions {
+                    allRegions.append((region: region, screen: screen))
+                }
+            }
 
-            guard !regions.isEmpty else {
+            guard !allRegions.isEmpty else {
                 state = .idle
                 return
             }
 
             state = .translating(progress: 0)
-            var translated: [(region: TextRegion, translation: String)] = []
+            var translated: [(region: TextRegion, translation: String, screen: NSScreen)] = []
 
-            for (index, region) in regions.enumerated() {
-                let progress = Double(index) / Double(regions.count)
+            for (index, item) in allRegions.enumerated() {
+                let progress = Double(index) / Double(allRegions.count)
                 state = .translating(progress: progress)
 
                 do {
-                    // Auto-detect source — translate to target
                     let result = try await translationEngine.translate(
-                        region.text,
+                        item.region.text,
                         from: .init(identifier: ""),  // empty = auto-detect
                         to: targetLanguage
                     )
-                    translated.append((region: region, translation: result))
+                    translated.append((region: item.region, translation: result, screen: item.screen))
                 } catch {
                     // Skip regions that fail to translate
                 }
             }
 
-            overlayRenderer.showOverlays(translated)
+            overlayRenderer.dismissOverlays()
+            // Group by screen and show overlays on each
+            let byScreen = Dictionary(grouping: translated, by: { ObjectIdentifier($0.screen) })
+            for (_, items) in byScreen {
+                guard let screen = items.first?.screen else { continue }
+                let pairs = items.map { (region: $0.region, translation: $0.translation) }
+                overlayRenderer.showOverlays(pairs, on: screen)
+            }
+
             regionCount = translated.count
             state = .showing
 

@@ -55,6 +55,32 @@ final class ScreenCaptureManager {
             throw CaptureError.noDisplayFound
         }
 
+        return try await captureDisplay(display)
+    }
+
+    /// Captures all connected displays, returning (image, screen) pairs.
+    func captureAllDisplays() async throws -> [(CGImage, NSScreen)] {
+        let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: false)
+
+        guard !content.displays.isEmpty else {
+            throw CaptureError.noDisplayFound
+        }
+
+        var results: [(CGImage, NSScreen)] = []
+        for display in content.displays {
+            let nsScreen = NSScreen.screens.first(where: {
+                ($0.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID) == display.displayID
+            }) ?? NSScreen.main ?? NSScreen.screens[0]
+
+            let image = try await captureDisplay(display)
+            results.append((image, nsScreen))
+        }
+        return results
+    }
+
+    // MARK: - Private
+
+    private func captureDisplay(_ display: SCDisplay) async throws -> CGImage {
         let filter = SCContentFilter(display: display, excludingApplications: [], exceptingWindows: [])
         let config = SCStreamConfiguration()
         config.width = display.width

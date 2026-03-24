@@ -55,16 +55,13 @@ final class TextOverlayRenderer {
 
     private var overlayWindows: [TextOverlayWindow] = []
 
-    /// Shows translated overlays on the main screen for each region.
-    /// `translatedRegions` pairs the original region with its translation.
-    func showOverlays(_ translatedRegions: [(region: TextRegion, translation: String)]) {
-        dismissOverlays()
-
+    /// Shows translated overlays on `screen` for each region.
+    /// Caller is responsible for calling `dismissOverlays()` before this when replacing overlays.
+    func showOverlays(_ translatedRegions: [(region: TextRegion, translation: String)], on screen: NSScreen) {
         for (region, translation) in translatedRegions {
             guard !translation.isEmpty else { continue }
 
-            // Convert Vision/image space to screen space (flip Y for AppKit screen coords)
-            let screenRect = regionToScreenRect(region.screenRect)
+            let screenRect = regionToScreenRect(region.screenRect, on: screen)
             let window = TextOverlayWindow(translatedText: translation, screenRect: screenRect)
             window.orderFront(nil)
             overlayWindows.append(window)
@@ -78,17 +75,14 @@ final class TextOverlayRenderer {
 
     // MARK: - Coordinate helpers
 
-    private func regionToScreenRect(_ imageRect: CGRect) -> CGRect {
-        guard let screen = NSScreen.main else { return imageRect }
-
-        // Image coordinates have origin top-left.
-        // AppKit screen coordinates have origin bottom-left.
-        // Scale from image pixels to screen points.
+    private func regionToScreenRect(_ imageRect: CGRect, on screen: NSScreen) -> CGRect {
+        // Image coordinates: origin top-left, pixel space.
+        // AppKit screen coordinates: origin bottom-left of global screen space.
         let scale = screen.backingScaleFactor
-        let screenHeight = screen.frame.height
+        let frame = screen.frame
 
-        let x = imageRect.minX / scale
-        let y = screenHeight - (imageRect.maxY / scale) // flip Y
+        let x = frame.minX + imageRect.minX / scale
+        let y = frame.minY + frame.height - imageRect.maxY / scale  // flip Y within screen
         let w = imageRect.width / scale
         let h = imageRect.height / scale
 
