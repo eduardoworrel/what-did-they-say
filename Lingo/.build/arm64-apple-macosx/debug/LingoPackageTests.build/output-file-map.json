@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/master.swiftdeps"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/runner.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/LingoPackageTests.build/runner.dia"
+  }
+}

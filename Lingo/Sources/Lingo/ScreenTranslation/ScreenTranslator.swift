@@ -1,3 +1,4 @@
+import LingoCore
 import Foundation
 import AppKit
 

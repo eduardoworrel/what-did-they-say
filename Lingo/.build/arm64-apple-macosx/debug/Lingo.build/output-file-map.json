@@ -1,0 +1,82 @@
+{
+  "": {
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/master.swiftdeps"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/AppDelegate.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/AppDelegate.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/AppDelegate.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/AppDelegate.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/LingoApp.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LingoApp.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LingoApp.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LingoApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LingoApp.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LingoApp.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/ScreenTranslation/ScreenCaptureManager.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenCaptureManager.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenCaptureManager.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenCaptureManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenCaptureManager.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenCaptureManager.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/ScreenTranslation/ScreenTranslator.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslator.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslator.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslator~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslator.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslator.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/ScreenTranslation/TextOverlayRenderer.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextOverlayRenderer.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextOverlayRenderer.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextOverlayRenderer~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextOverlayRenderer.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextOverlayRenderer.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/ScreenTranslation/TextRegionDetector.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextRegionDetector.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextRegionDetector.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextRegionDetector~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextRegionDetector.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TextRegionDetector.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/UI/LanguageButton.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LanguageButton.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LanguageButton.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LanguageButton~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LanguageButton.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/LanguageButton.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/UI/MenuBarController.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/MenuBarController.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/MenuBarController.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/MenuBarController~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/MenuBarController.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/MenuBarController.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/UI/PopoverView.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/PopoverView.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/PopoverView.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/PopoverView~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/PopoverView.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/PopoverView.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/UI/ScreenTranslationOverlay.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslationOverlay.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslationOverlay.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslationOverlay~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslationOverlay.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/ScreenTranslationOverlay.dia"
+  },
+  "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/Sources/Lingo/UI/TranslationResultOverlay.swift": {
+    "dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TranslationResultOverlay.d",
+    "object": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TranslationResultOverlay.swift.o",
+    "swiftmodule": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TranslationResultOverlay~partial.swiftmodule",
+    "swift-dependencies": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TranslationResultOverlay.swiftdeps",
+    "diagnostics": "/Users/eduardoworrel/Documents/repos/pessoal/what-did-they-say/Lingo/.build/arm64-apple-macosx/debug/Lingo.build/TranslationResultOverlay.dia"
+  }
+}

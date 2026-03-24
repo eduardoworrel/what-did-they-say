@@ -1,3 +1,4 @@
+import LingoCore
 import SwiftUI
 
 /// The main menu bar popover — text input → translation.

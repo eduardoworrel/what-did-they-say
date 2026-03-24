@@ -1,3 +1,4 @@
+import LingoCore
 import AppKit
 import SwiftUI
 /// Owns the NSStatusItem and NSPopover for the Lingo menu bar icon.
