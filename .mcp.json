@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "xcodebuildmcp": {
-      "command": "npx",
-      "args": ["-y", "@cameroncooke/xcodebuildmcp"]
-    }
-  }
-}
