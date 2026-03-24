@@ -28,7 +28,7 @@ Apple Translation (on-device) requires macOS 15 Sequoia for the programmatic API
 ### With Xcode (recommended)
 
 ```bash
-git clone https://github.com/your-org/what-did-they-say
+git clone https://github.com/eduardoworrel/what-did-they-say
 cd what-did-they-say/Lingo
 open Package.swift           # Opens in Xcode
 ```
