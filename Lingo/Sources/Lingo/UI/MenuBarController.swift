@@ -22,7 +22,7 @@ final class MenuBarController {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = item.button {
             // Use an SF Symbol as the menu bar icon; replace with custom Asset when available
-            button.image = NSImage(systemSymbolName: "globe", accessibilityDescription: "Lingo")
+            button.image = NSImage(systemSymbolName: "globe", accessibilityDescription: "What Did They Say")
             button.image?.isTemplate = true
             button.action = #selector(statusButtonClicked(_:))
             button.target = self
@@ -83,9 +83,9 @@ final class MenuBarController {
         guard let button = statusItem?.button else { return }
         switch state {
         case .showing:
-            button.image = NSImage(systemSymbolName: "globe.badge.chevron.backward", accessibilityDescription: "Lingo — translating")
+            button.image = NSImage(systemSymbolName: "globe.badge.chevron.backward", accessibilityDescription: "What Did They Say — translating")
         default:
-            button.image = NSImage(systemSymbolName: "globe", accessibilityDescription: "Lingo")
+            button.image = NSImage(systemSymbolName: "globe", accessibilityDescription: "What Did They Say")
         }
         button.image?.isTemplate = true
     }
@@ -124,7 +124,7 @@ final class MenuBarController {
 
         menu.addItem(.separator())
 
-        let quitItem = NSMenuItem(title: "Quit Lingo", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit What Did They Say", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         menu.addItem(quitItem)
 
         statusItem?.menu = menu

@@ -56,7 +56,7 @@ public final class Preferences: ObservableObject {
                 }
             } catch {
                 // Log but don't crash — user can always set this in Login Items manually
-                NSLog("Lingo: launch-at-login error: \(error.localizedDescription)")
+                NSLog("What Did They Say: launch-at-login error: \(error.localizedDescription)")
             }
         }
     }

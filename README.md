@@ -1,4 +1,4 @@
-# Lingo
+# What Did They Say
 
 A local, privacy-first translation overlay for macOS. Translate any text on screen — no cloud required.
 
@@ -34,7 +34,7 @@ open Package.swift           # Opens in Xcode
 ```
 
 In Xcode:
-1. Select the **Lingo** scheme
+1. Select the **WhatDidTheySay** scheme
 2. Set your Development Team in **Signing & Capabilities**
 3. Press **⌘R** to build and run
 
@@ -43,15 +43,15 @@ In Xcode:
 ```bash
 cd what-did-they-say/Lingo
 swift build -c release
-.build/release/Lingo
+.build/release/WhatDidTheySay
 ```
 
 > Note: Running from the terminal may require granting Screen Recording permission manually in
-> **System Settings → Privacy & Security → Screen Recording → Lingo**.
+> **System Settings → Privacy & Security → Screen Recording → What Did They Say**.
 
 ## Permissions
 
-Lingo requires two permissions (prompted automatically on first launch):
+What Did They Say requires two permissions (prompted automatically on first launch):
 
 | Permission | Why |
 |------------|-----|
@@ -76,28 +76,30 @@ Lingo/
 ├── Package.swift
 ├── Lingo.entitlements
 ├── Resources/Assets.xcassets/      ← App icon + menu bar icon assets
-└── Sources/Lingo/
-    ├── LingoApp.swift               ← @main entry point
-    ├── AppDelegate.swift            ← App lifecycle, shortcut registration
-    ├── Engine/
-    │   ├── TranslationEngine.swift  ← Protocol + CompositeEngine
-    │   ├── AppleTranslationEngine.swift
-    │   ├── NLLBEngine.swift         ← Stub; enable via Package.swift
-    │   └── ModelCache.swift
-    ├── ScreenTranslation/
-    │   ├── ScreenTranslator.swift   ← Orchestrator
-    │   ├── ScreenCaptureManager.swift
-    │   ├── TextRegionDetector.swift ← Vision OCR
-    │   └── TextOverlayRenderer.swift
-    ├── UI/
-    │   ├── MenuBarController.swift
-    │   ├── PopoverView.swift
-    │   ├── LanguageButton.swift
-    │   ├── TranslationResultOverlay.swift
-    │   └── ScreenTranslationOverlay.swift
-    └── Utils/
-        ├── GlobalShortcut.swift     ← Carbon RegisterEventHotKey
-        └── Preferences.swift        ← UserDefaults + LaunchAtLogin
+└── Sources/
+    ├── LingoCore/                   ← Testable business logic (no AppKit)
+    │   ├── Engine/
+    │   │   ├── TranslationEngine.swift   ← Protocol + CompositeEngine
+    │   │   ├── AppleTranslationEngine.swift
+    │   │   ├── NLLBEngine.swift          ← Stub; enable via Package.swift
+    │   │   └── ModelCache.swift
+    │   └── Utils/
+    │       └── Preferences.swift         ← UserDefaults + LaunchAtLogin
+    └── Lingo/                       ← App executable (AppKit/SwiftUI)
+        ├── LingoApp.swift           ← @main entry point
+        ├── AppDelegate.swift        ← App lifecycle, shortcut registration
+        ├── ScreenTranslation/
+        │   ├── ScreenTranslator.swift         ← Orchestrator
+        │   ├── ScreenCaptureManager.swift
+        │   ├── TextRegionDetector.swift        ← Vision OCR
+        │   ├── TextOverlayRenderer.swift
+        │   └── HoverTranslationController.swift
+        └── UI/
+            ├── MenuBarController.swift
+            ├── PopoverView.swift
+            ├── LanguageButton.swift
+            ├── TranslationResultOverlay.swift
+            └── ScreenTranslationOverlay.swift
 ```
 
 ## Enabling NLLB-200 Offline Fallback
@@ -115,7 +117,7 @@ The menu bar icon uses an SF Symbol (`globe`) by default. Replace it in `MenuBar
 
 ## Privacy
 
-Lingo processes everything locally:
+What Did They Say processes everything locally:
 - Screen captures never leave your device
 - Apple Translation runs on-device (no data sent to Apple servers)
 - NLLB-200 runs entirely offline once downloaded

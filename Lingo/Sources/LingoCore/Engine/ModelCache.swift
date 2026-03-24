@@ -8,7 +8,7 @@ public actor ModelCache {
 
     private init() {
         let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        baseURL = appSupport.appendingPathComponent("Lingo/Models", isDirectory: true)
+        baseURL = appSupport.appendingPathComponent("WhatDidTheySay/Models", isDirectory: true)
         try? FileManager.default.createDirectory(at: baseURL, withIntermediateDirectories: true)
     }
 

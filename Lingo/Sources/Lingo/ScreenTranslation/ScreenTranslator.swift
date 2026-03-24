@@ -123,7 +123,7 @@ final class ScreenTranslator: ObservableObject {
     private func showPermissionAlert() {
         let alert = NSAlert()
         alert.messageText = "Screen Recording Permission Required"
-        alert.informativeText = "Lingo needs Screen Recording permission to translate on-screen text.\n\nOpen System Settings → Privacy & Security → Screen Recording and enable Lingo."
+        alert.informativeText = "What Did They Say needs Screen Recording permission to translate on-screen text.\n\nOpen System Settings → Privacy & Security → Screen Recording and enable What Did They Say."
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Open System Settings")
         alert.addButton(withTitle: "Cancel")

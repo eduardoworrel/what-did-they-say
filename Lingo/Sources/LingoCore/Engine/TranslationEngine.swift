@@ -45,7 +45,7 @@ public protocol TranslationEngine: AnyObject, Sendable {
 // MARK: - Composite engine (tries Apple first, falls back to NLLB)
 
 public final class CompositeTranslationEngine: TranslationEngine, @unchecked Sendable {
-    public let name = "Lingo"
+    public let name = "What Did They Say"
 
     private let engines: [any TranslationEngine]
 

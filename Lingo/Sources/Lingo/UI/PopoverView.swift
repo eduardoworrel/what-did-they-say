@@ -50,7 +50,7 @@ struct PopoverView: View {
 
     private var headerBar: some View {
         HStack {
-            Text("Lingo")
+            Text("What Did They Say")
                 .font(.system(size: 13, weight: .semibold))
             Spacer()
             LanguageButton(label: "From", selection: $sourceLanguage,

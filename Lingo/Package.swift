@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "Lingo",
+    name: "WhatDidTheySay",
     platforms: [
         .macOS(.v14)
     ],
     products: [
-        .executable(name: "Lingo", targets: ["Lingo"])
+        .executable(name: "WhatDidTheySay", targets: ["WhatDidTheySay"])
     ],
     dependencies: [
         // NLLB-200 fallback via swift-transformers (optional — comment out if not needed)
@@ -25,7 +25,7 @@ let package = Package(
             ]
         ),
         .executableTarget(
-            name: "Lingo",
+            name: "WhatDidTheySay",
             dependencies: [
                 "LingoCore",
                 // Uncomment to enable NLLB fallback:
