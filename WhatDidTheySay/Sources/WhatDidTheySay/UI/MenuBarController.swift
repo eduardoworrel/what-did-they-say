@@ -45,12 +45,11 @@ final class MenuBarController {
     // MARK: - Popover
 
     private func buildPopover() {
-        let engine = TranslationEngineProvider.shared.engine
         let prefs = Preferences.shared
-        let content = PopoverView(engine: engine, screenTranslator: screenTranslator, prefs: prefs)
+        let content = PopoverView(screenTranslator: screenTranslator, prefs: prefs)
 
         let pop = NSPopover()
-        pop.contentSize = NSSize(width: 360, height: 280)
+        pop.contentSize = NSSize(width: 360, height: 260)
         pop.behavior = .transient
         pop.contentViewController = NSHostingController(rootView: content)
         pop.animates = true
