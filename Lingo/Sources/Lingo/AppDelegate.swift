@@ -6,6 +6,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var menuBarController: MenuBarController?
     private var popoverShortcut: GlobalShortcut?
     private var screenShortcut: GlobalShortcut?
+    private var hoverController: HoverTranslationController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Menu bar only — hide from Dock and app switcher
@@ -24,6 +25,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // Prompt for Screen Recording permission upfront (non-blocking)
         ScreenCaptureManager.requestPermission()
 
+        // Start hover-to-translate (always-on; ⌘⇧T toggles it)
+        hoverController = HoverTranslationController()
+        hoverController?.start()
+
         // Observe model download notifications to inform user
         NotificationCenter.default.addObserver(
             self,
@@ -36,6 +41,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
         popoverShortcut = nil
         screenShortcut = nil
+        hoverController?.stop()
+        hoverController = nil
         menuBarController?.tearDown()
     }
 
@@ -44,7 +51,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func registerShortcuts() {
         popoverShortcut = GlobalShortcut.makePopoverShortcut { [weak self] in
             DispatchQueue.main.async {
-                self?.menuBarController?.togglePopover()
+                self?.hoverController?.toggle()
             }
         }
 

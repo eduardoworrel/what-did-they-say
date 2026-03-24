@@ -58,6 +58,19 @@ final class ScreenCaptureManager {
         return try await captureDisplay(display)
     }
 
+    /// Captures the display that contains `screen`, falling back to the first display.
+    func captureScreen(_ screen: NSScreen) async throws -> CGImage {
+        let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: false)
+
+        let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
+        guard let display = content.displays.first(where: { $0.displayID == screenNumber })
+                ?? content.displays.first else {
+            throw CaptureError.noDisplayFound
+        }
+
+        return try await captureDisplay(display)
+    }
+
     /// Captures all connected displays, returning (image, screen) pairs.
     func captureAllDisplays() async throws -> [(CGImage, NSScreen)] {
         let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: false)
