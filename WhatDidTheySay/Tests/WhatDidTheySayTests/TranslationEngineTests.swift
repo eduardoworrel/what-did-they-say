@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import LingoCore
+@testable import WhatDidTheySayCore
 
 // MARK: - Mock Engines
 
@@ -158,9 +158,9 @@ struct CompositeTranslationEngineTests {
 
     // MARK: name
 
-    @Test("composite engine name is 'Lingo'")
+    @Test("composite engine name is 'What Did They Say'")
     func compositeName() {
         let engine = CompositeTranslationEngine(engines: [])
-        #expect(engine.name == "Lingo")
+        #expect(engine.name == "What Did They Say")
     }
 }

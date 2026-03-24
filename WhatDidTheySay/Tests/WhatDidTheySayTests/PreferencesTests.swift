@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import LingoCore
+@testable import WhatDidTheySayCore
 
 // Preferences is @MainActor — all tests must run on the main actor.
 @Suite("Preferences", .serialized)

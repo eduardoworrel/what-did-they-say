@@ -17,9 +17,9 @@ let package = Package(
     targets: [
         // Business logic library — testable without AppKit entrypoints
         .target(
-            name: "LingoCore",
+            name: "WhatDidTheySayCore",
             dependencies: [],
-            path: "Sources/LingoCore",
+            path: "Sources/WhatDidTheySayCore",
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency")
             ]
@@ -27,11 +27,11 @@ let package = Package(
         .executableTarget(
             name: "WhatDidTheySay",
             dependencies: [
-                "LingoCore",
+                "WhatDidTheySayCore",
                 // Uncomment to enable NLLB fallback:
                 // .product(name: "Transformers", package: "swift-transformers"),
             ],
-            path: "Sources/Lingo",
+            path: "Sources/WhatDidTheySay",
             resources: [
                 .copy("../../Resources/Assets.xcassets")
             ],
@@ -40,12 +40,12 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "LingoTests",
+            name: "WhatDidTheySayTests",
             dependencies: [
-                "LingoCore",
+                "WhatDidTheySayCore",
                 .product(name: "Testing", package: "swift-testing"),
             ],
-            path: "Tests/LingoTests"
+            path: "Tests/WhatDidTheySayTests"
         )
     ]
 )

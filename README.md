@@ -74,10 +74,10 @@ What Did They Say requires two permissions (prompted automatically on first laun
 ```
 WhatDidTheySay/
 ├── Package.swift
-├── Lingo.entitlements
+├── WhatDidTheySay.entitlements
 ├── Resources/Assets.xcassets/      ← App icon + menu bar icon assets
 └── Sources/
-    ├── LingoCore/                   ← Testable business logic (no AppKit)
+    ├── WhatDidTheySayCore/          ← Testable business logic (no AppKit)
     │   ├── Engine/
     │   │   ├── TranslationEngine.swift   ← Protocol + CompositeEngine
     │   │   ├── AppleTranslationEngine.swift
@@ -85,8 +85,8 @@ WhatDidTheySay/
     │   │   └── ModelCache.swift
     │   └── Utils/
     │       └── Preferences.swift         ← UserDefaults + LaunchAtLogin
-    └── Lingo/                       ← App executable (AppKit/SwiftUI)
-        ├── LingoApp.swift           ← @main entry point
+    └── WhatDidTheySay/              ← App executable (AppKit/SwiftUI)
+        ├── WhatDidTheySayApp.swift  ← @main entry point
         ├── AppDelegate.swift        ← App lifecycle, shortcut registration
         ├── ScreenTranslation/
         │   ├── ScreenTranslator.swift         ← Orchestrator

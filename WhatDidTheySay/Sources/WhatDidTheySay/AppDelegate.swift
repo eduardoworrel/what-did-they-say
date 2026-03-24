@@ -1,4 +1,4 @@
-import LingoCore
+import WhatDidTheySayCore
 import AppKit
 import Combine
 
@@ -102,5 +102,5 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension Notification.Name {
-    static let toggleScreenTranslation = Notification.Name("LingoToggleScreenTranslation")
+    static let toggleScreenTranslation = Notification.Name("WhatDidTheySayToggleScreenTranslation")
 }

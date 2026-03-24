@@ -51,5 +51,5 @@ public actor ModelCache {
 }
 
 public extension Notification.Name {
-    static let modelDownloadRequired = Notification.Name("LingoModelDownloadRequired")
+    static let modelDownloadRequired = Notification.Name("WhatDidTheySayModelDownloadRequired")
 }

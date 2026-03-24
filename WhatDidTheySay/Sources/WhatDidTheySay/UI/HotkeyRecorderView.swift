@@ -1,7 +1,7 @@
 import SwiftUI
 import AppKit
 import Carbon.HIToolbox
-import LingoCore
+import WhatDidTheySayCore
 
 /// A SwiftUI wrapper around an NSView that captures a key combination for use
 /// as a global shortcut. Click the field, then press the desired combination.

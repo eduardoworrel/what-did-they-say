@@ -1,7 +1,7 @@
-import LingoCore
+import WhatDidTheySayCore
 import AppKit
 import SwiftUI
-/// Owns the NSStatusItem and NSPopover for the Lingo menu bar icon.
+/// Owns the NSStatusItem and NSPopover for the WhatDidTheySay menu bar icon.
 @MainActor
 final class MenuBarController {
 

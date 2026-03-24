@@ -1,4 +1,4 @@
-import LingoCore
+import WhatDidTheySayCore
 import Foundation
 import AppKit
 

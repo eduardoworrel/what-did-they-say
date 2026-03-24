@@ -1,4 +1,4 @@
-import LingoCore
+import WhatDidTheySayCore
 import SwiftUI
 
 /// Settings panel shown inside the menu bar popover.
